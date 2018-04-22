@@ -3,7 +3,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram.user import User
 from telegram import user
 import apiai, json, requests
-updater = Updater(token='562665978:AAGTyjFp1ywomZecdQV1hxkmEU75o35W9hQ') # Токен API к Telegram
+updater = Updater(token='573439927:AAEbWeftLfveTAvIts84mmR33-PCXf7aNv4') # Токен API к Telegram
 dispatcher = updater.dispatcher
 # Обработка команд
 def startCommand(bot, update):
@@ -17,13 +17,12 @@ def textMessage(bot, update):
     response = responseJson['result']['fulfillment']['speech'] # Разбираем JSON и вытаскиваем ответ
     # Если есть ответ от бота - присылаем юзеру, если нет - бот его не понял
     if response:
-        bot.send_message(chat_id=update.message.chat_id, text=response)
+        bot.send_message(chat_id=update.message.chat_id, text=n + ' ' +n2 +', ' + response)
     else:
         n=str(update.message.from_user.first_name)
         n2=str(update.message.from_user.last_name)
         тт=update.message.chat_id
-        bot.send_message(chat_id=update.message.chat_id, text=тт)
-        bot.send_message(chat_id=update.message.chat_id, text=n + ', Я Вас не совсем понял!')
+        bot.send_message(chat_id=update.message.chat_id, text=n + ' ' +n2 +', Я Вас не совсем понял!')
        #bot.send_message(chat_id='@vlaslm_bot', text=n + ', Я Вас не совсем понял!')
 # Хендлеры
 start_command_handler = CommandHandler('start', startCommand)
