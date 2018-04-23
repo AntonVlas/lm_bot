@@ -16,13 +16,14 @@ def textMessage(bot, update):
     responseJson = json.loads(request.getresponse().read().decode('utf-8'))
     response = responseJson['result']['fulfillment']['speech'] # Разбираем JSON и вытаскиваем ответ
     # Если есть ответ от бота - присылаем юзеру, если нет - бот его не понял
+    n=str(update.message.from_user.first_name)
+    n2=str(update.message.from_user.last_name)
+    тт=update.message.chat_id
     if response:
-        bot.send_message(chat_id=update.message.chat_id, text=n + ' ' +n2 +', ' + response)
+        bot.send_message(chat_id=update.message.chat_id, text=n + ' ' + n2 + ', ' + response)
     else:
-        n=str(update.message.from_user.first_name)
-        n2=str(update.message.from_user.last_name)
-        тт=update.message.chat_id
-        bot.send_message(chat_id=update.message.chat_id, text=n + ' ' +n2 +', Я Вас не совсем понял!')
+        ответ=str(n + ' ' + n2 )
+        bot.send_message(chat_id=update.message.chat_id, text=n + ' ' + n2 + ', Я Вас не совсем понял!')
        #bot.send_message(chat_id='@vlaslm_bot', text=n + ', Я Вас не совсем понял!')
 # Хендлеры
 start_command_handler = CommandHandler('start', startCommand)
@@ -34,5 +35,3 @@ dispatcher.add_handler(text_message_handler)
 updater.start_polling(clean=True)
 # Останавливаем бота, если были нажаты Ctrl + C
 updater.idle()
-
-
