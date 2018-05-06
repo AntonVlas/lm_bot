@@ -1,1 +1,1 @@
-web: python lm_bot.py
+worker: python lm_bot.py
