@@ -1,5 +1,6 @@
 # Настройки
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram import message
 from telegram.user import User
 from telegram import user
 import apiai, json, requests
