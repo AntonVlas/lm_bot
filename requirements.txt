@@ -12,6 +12,6 @@ requests==2.7.0
 setuptools==38.5.2
 telebot==0.0.3
 texttable==1.2.1
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==15.1.0
 yarg==0.1.9
